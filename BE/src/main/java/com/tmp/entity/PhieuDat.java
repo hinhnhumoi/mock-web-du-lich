@@ -46,5 +46,11 @@ public class PhieuDat implements Serializable {
     @Column(name = "thanhtien")
     private float thanhTien;
 
-    // thieu fk
+    @ManyToOne
+    @JoinColumn(name = "id_chitiet")
+    private ChiTietTour chiTietTour;
+
+    @ManyToOne
+    @JoinColumn(name = "id")
+    private Users user;
 }

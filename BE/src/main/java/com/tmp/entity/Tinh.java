@@ -4,6 +4,7 @@ import lombok.Data;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.List;
 
 @Data
 @Entity
@@ -15,5 +16,8 @@ public class Tinh implements Serializable {
     private int id;
 
     @Column(name = "tentinh")
-    private int tenTinh;
+    private String tenTinh;
+
+//    @OneToMany(mappedBy = "tinh")
+//    private List<Tour> listTour;
 }

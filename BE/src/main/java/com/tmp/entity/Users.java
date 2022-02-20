@@ -32,11 +32,13 @@ public class Users implements Serializable {
     @Column(name = "ghichu")
     private String ghiChu;
 
-    @Column(name = "username")
+    @Column(name = "username" , length = 30)
     private String userName;
 
     @Column(name = "password")
     private String password;
 
-    // thieu fk cv , token
+    @ManyToOne
+    @JoinColumn(name = "id_cv")
+    private ChucVu chucVu;
 }
