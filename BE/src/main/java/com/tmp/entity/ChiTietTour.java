@@ -1,5 +1,6 @@
 package com.tmp.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.Data;
 import org.hibernate.annotations.CreationTimestamp;
 
@@ -32,5 +33,12 @@ public class ChiTietTour implements Serializable {
     @Column(name = "hinhanh")
     private String hinhAnh;
 
-    //private int id;
+    @JsonBackReference
+    @ManyToOne
+    @JoinColumn(name = "id_tour")
+    private Tour tour_chitiet;
+
+    @ManyToOne
+    @JoinColumn(name = "id")
+    private Users user;
 }

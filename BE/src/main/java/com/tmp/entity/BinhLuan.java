@@ -30,6 +30,8 @@ public class BinhLuan implements Serializable {
     @CreationTimestamp
     private Date ngayGio;
 
-    // thieu fk
+    @ManyToOne
+    @JoinColumn(name = "id_chitiet")
+    private ChiTietTour chiTietTour;
 
 }

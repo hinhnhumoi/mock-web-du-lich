@@ -1,5 +1,7 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { Table } from 'react-bootstrap'
+import { useParams } from "react-router-dom";
+import TourApi from '../api/TourApi'
 import SpaceDiv from '../components/SpaceDiv'
 import '../assets/css/style-liberty.css'
 
@@ -11,6 +13,15 @@ const detailBoxStyle = {
 }
 
 const Detail = () => {
+    let { id } = useParams();
+    const [tourDetail, setTourDetail] = useState({});
+
+    useEffect(() => {
+        const response = TourApi.getById(`${id}`);
+        response.then(res => setTourDetail(res));
+    }, [id])
+
+    console.log(tourDetail);
     return (
         <>
             <section className="w3l-blog-post-main">
@@ -23,9 +34,8 @@ const Detail = () => {
                                     <div className="single-post-image mb-4">
                                         <div className="post-content">
                                             <span className="sub-title">Stroll</span>
-                                            <h4 className="text-head-text-9 my-2">Lorem ipsum dolor sit amet, consectetuer
-                                                adipiscing
-                                                elit.
+                                            <h4 className="text-head-text-9 my-2">
+                                                {tourDetail.tenTour}
                                             </h4>
                                         </div>
                                         <ul className="blog-author-date d-flex align-items-center mb-4">
@@ -38,31 +48,12 @@ const Detail = () => {
                                     </div>
 
                                     <div className="single-post-content">
-                                        <p className="mb-4">Lorem ipsum dolor sit amet,Ea consequuntur illum facere aperiam sequi
-                                            optio
-                                            consectetur.Ea consequuntur illum facere aperiam sequi optio consectetur adipisicing
-                                            elitFuga,
-                                            suscipit totam animi consequatur saepe blanditiis.Lorem ipsum dolor sit amet,Ea
-                                            consequuntur
-                                            illum facere aperiam sequi optio consectetur adipisicing elit..Lorem ipsum, dolor
-                                            sit
-                                            amet
-                                            consectetur adipisicing elit. At, corrupti odit? At iure facere, porro repellat
-                                            officia
-                                            quas,
-                                            dolores magnam assumenda soluta odit harum voluptate inventore ipsa maiores fugiat
-                                            accusamus
-                                            eos
-                                            nulla. Iure voluptatibus explicabo officia.</p>
-                                        <p className="mb-4">Lorem ipsum, dolor sit amet consectetur adipisicing elit. At, corrupti
-                                            odit?
-                                            At
-                                            iure
-                                            facere, porro repellat officia quas, dolores magnam assumenda soluta odit harum
-                                            voluptate
-                                            inventore ipsa maiores fugiat accusamus eos nulla. Iure voluptatibus explicabo
-                                            officia.
-                                        </p>
+                                        <h4 className="side-title ">Lịch trình Tour</h4>
+                                        {tourDetail.chuongTrinhTourList ?
+                                            tourDetail.chuongTrinhTourList.map((item) => {
+                                                return (<p className="mb-4" key={item.id}>{item.moTa}</p>)
+                                            }) : <p>loading ....</p>
+                                        }
                                         <blockquote className="blockquote my-5">
                                             <div className="icon-quote"><span className="fa fa-quote-left" aria-hidden="true"></span>
                                             </div>
@@ -155,17 +146,17 @@ const Detail = () => {
                                                 <Table>
                                                     <thead>
                                                         <tr>
-                                                            <th colSpan={2}><span style={detailBoxStyle}>Du lịch Đà Nẵng</span></th>
+                                                            <th colSpan={2}><span style={detailBoxStyle}>{tourDetail.tenTour}</span></th>
                                                         </tr>
                                                     </thead>
                                                     <tbody>
                                                         <tr>
                                                             <td><b>Mã tour</b></td>
-                                                            <td>15985</td>
+                                                            <td>{tourDetail.id}</td>
                                                         </tr>
                                                         <tr>
                                                             <td><b>Thời gian:</b></td>
-                                                            <td>3 ngày 2 đêm</td>
+                                                            <td>{tourDetail.soNgay} ngày {tourDetail.soDem} đêm</td>
                                                         </tr>
                                                         <tr>
                                                             <td><b>Khởi hành:</b></td>
@@ -174,7 +165,7 @@ const Detail = () => {
                                                         </tr>
                                                         <tr>
                                                             <td><b>Vận Chuyển:</b></td>
-                                                            <td>Xe du lịch, Máy bay</td>
+                                                            <td>{tourDetail.phuongTien}</td>
                                                         </tr>
                                                         <tr>
                                                             <td><b>Xuất phát: </b></td>

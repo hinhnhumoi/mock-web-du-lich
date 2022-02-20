@@ -4,6 +4,7 @@ import lombok.Data;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.List;
 
 @Data
 @Entity
@@ -17,4 +18,8 @@ public class LoaiTour implements Serializable {
 
     @Column(name = "tenlt")
     private String ten;
+
+
+//    @OneToMany(mappedBy = "loaiTour")
+//    private List<Tour> listTour;
 }

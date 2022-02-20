@@ -15,7 +15,7 @@ const Gallery = () => {
                         <div className="gallery-grids">
                             <div className="col-lg-4 col-md-6 content-left-sec gal-slide-grid">
                                 <div className="gal-slide-img">
-                                    <a href="index.html"><img src={require("../web - Copy/assets/images/g1.jpg").default} className="img img-fluid" alt=""/></a>
+                                    <a href="index.html"><img src={require("../assets/images/g1.jpg").default} className="img img-fluid" alt=""/></a>
                                 </div>
                                 <div className="gal-slide-info">
 

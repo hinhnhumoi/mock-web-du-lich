@@ -7,10 +7,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping(value = "api/v1/tours")
@@ -20,8 +17,14 @@ public class TourController {
     private ITourService service;
 
     @GetMapping()
-    public ResponseEntity<?> getAllDepartments(Pageable pageable) {
-        Page<Tour> entities = service.getAllTours(pageable);
+    public ResponseEntity<?> getAllTours(Pageable pageable) {
+        Page<Tour> entities = service.getTourPaging(pageable);
+        return new ResponseEntity<>(entities, HttpStatus.OK);
+    }
+
+    @GetMapping(value = "/{id}")
+    public ResponseEntity<?> getTourById(@PathVariable(name = "id") int id) {
+        Tour entities = service.getTourById(id);
         return new ResponseEntity<>(entities, HttpStatus.OK);
     }
 }

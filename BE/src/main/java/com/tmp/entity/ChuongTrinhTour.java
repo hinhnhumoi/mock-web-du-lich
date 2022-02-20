@@ -1,5 +1,6 @@
 package com.tmp.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.Data;
 
 import javax.persistence.*;
@@ -23,5 +24,8 @@ public class ChuongTrinhTour implements Serializable {
     @Column(name = "mota")
     private String moTa;
 
-    // thieu fk id_tour
+    @JsonBackReference
+    @ManyToOne
+    @JoinColumn(name = "id_tour")
+    private Tour tour;
 }

@@ -14,7 +14,12 @@ public class TourService implements ITourService {
     private ITourRepository tourRepository;
 
     @Override
-    public Page<Tour> getAllTours(Pageable pageable) {
+    public Page<Tour> getTourPaging(Pageable pageable) {
         return tourRepository.findAll(pageable);
+    }
+
+    @Override
+    public Tour getTourById(int id) {
+        return tourRepository.findById(id).get();
     }
 }
