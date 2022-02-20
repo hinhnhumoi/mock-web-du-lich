@@ -20,8 +20,7 @@ const BottomGrid = () => {
                                 <span className="fa fa-globe icon-fea1" aria-hidden="true"></span>
                                 <h5><a href="about.html">Voyages & Cruises</a></h5>
                                 <p>Lorem ipsum dolor sit amet,Ea consequuntur illum facere.</p>
-
-                            </div>y
+                            </div>
                         </div>
                         <div className="col-lg-3 col-md-6 about-gd mt-lg-0 mt-3">
                             <div className="about-gd-inn">
