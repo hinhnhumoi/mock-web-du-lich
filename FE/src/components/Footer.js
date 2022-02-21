@@ -11,22 +11,26 @@ const Footer = () => {
                             <div className="right-side">
                                 <div className="row sub-columns">
                                     <div className="col-lg-4 col-md-6 sub-one-left pr-lg-4">
-                                        <h2><a className="navbar-brand" href="index.html">
-                                            <span className="fa fa-globe" aria-hidden="true"></span>Travel</a></h2>
+                                        <h2>
+                                            <a className="navbar-brand" href="index.html">
+                                                <span className="fa fa-globe" aria-hidden="true"></span>Travel
+                                            </a>
+                                        </h2>
                                         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur hic odio
                                             voluptatem tenetur consequatur.Lorem ipsum dolor sit amet consectetur
-                                            adipisicing elit. </p>
+                                            adipisicing elit.
+                                        </p>
                                         <div className="columns-2">
                                             <ul className="social">
-                                                <li><a href="/home"><span className="fa fa-facebook" aria-hidden="true"></span></a>
+                                                <li><a href="/home"><span className="fa fa-facebook" aria-hidden="true"></span>&nbsp;</a>
                                                 </li>
-                                                <li><a href="/home"><span className="fa fa-linkedin" aria-hidden="true"></span></a>
+                                                <li><a href="/home"><span className="fa fa-linkedin" aria-hidden="true"></span>&nbsp;</a>
                                                 </li>
-                                                <li><a href="/home"><span className="fa fa-twitter" aria-hidden="true"></span></a>
+                                                <li><a href="/home"><span className="fa fa-twitter" aria-hidden="true"></span>&nbsp;</a>
                                                 </li>
-                                                <li><a href="/home"><span className="fa fa-google-plus" aria-hidden="true"></span></a>
+                                                <li><a href="/home"><span className="fa fa-google-plus" aria-hidden="true"></span>&nbsp;</a>
                                                 </li>
-                                                <li><a href="/home"><span className="fa fa-github" aria-hidden="true"></span></a>
+                                                <li><a href="/home"><span className="fa fa-github" aria-hidden="true"></span>&nbsp;</a>
                                                 </li>
                                             </ul>
                                         </div>

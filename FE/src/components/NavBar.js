@@ -1,5 +1,5 @@
 import React from 'react'
-import { NavLink } from 'react-router-dom'
+import { NavLink , Link} from 'react-router-dom'
 import '../assets/css/style-liberty.css'
 
 const NavBar = () => {
@@ -11,8 +11,9 @@ const NavBar = () => {
                         <header className="top-headerhny">
 
                             <nav className="navbar navbar-expand-lg navbar-light">
-                                <a className="navbar-brand" href="/">
-                                    <span className="fa fa-globe" aria-hidden="true"></span>Travel</a>
+                                <Link className="navbar-brand" to="/">
+                                    <span className="fa fa-globe" aria-hidden="true"></span>Travel
+                                    </Link>
 
                                 <button className="navbar-toggler" type="button" data-toggle="collapse"
                                     data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"

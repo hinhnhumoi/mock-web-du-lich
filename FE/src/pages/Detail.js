@@ -21,7 +21,6 @@ const Detail = () => {
         response.then(res => setTourDetail(res));
     }, [id])
 
-    console.log(tourDetail);
     return (
         <>
             <section className="w3l-blog-post-main">
@@ -33,7 +32,7 @@ const Detail = () => {
                                 <div className="blog-posthny-info">
                                     <div className="single-post-image mb-4">
                                         <div className="post-content">
-                                            <span className="sub-title">Stroll</span>
+                                            <span className="sub-title">Travel</span>
                                             <h4 className="text-head-text-9 my-2">
                                                 {tourDetail.tenTour}
                                             </h4>
@@ -81,7 +80,6 @@ const Detail = () => {
                                                         <a href="index.html"><span className="fa fa-twitter"></span></a>
                                                         <a href="index.html"><span className="fa fa-tumblr"></span></a>
                                                         <a href="index.html"><span className="fa fa-reddit"></span></a>
-
                                                     </div>
                                                 </div>
                                             </div>
@@ -161,7 +159,8 @@ const Detail = () => {
                                                         <tr>
                                                             <td><b>Khởi hành:</b></td>
                                                             <td>
-                                                                14,18,21,25/02; 04,11,18,25/03; 01,04,15,18,22,25/04  </td>
+                                                                {/* 14,18,21,25/02; 04,11,18,25/03; 01,04,15,18,22,25/04 */}
+                                                            </td>
                                                         </tr>
                                                         <tr>
                                                             <td><b>Vận Chuyển:</b></td>
@@ -179,8 +178,9 @@ const Detail = () => {
                                             </div>
                                         </div>
                                         <div className="side-gridhny mb-lg-5 mb-4">
-                                            <h4 className="side-title">Giá từ: 4,099,000 đ
-                                            </h4>
+                                            <h4 className="side-title">Giá người lớn: {tourDetail.giaNguoiLon} đ</h4>
+                                            <h4 className="side-title">Giá từ: {tourDetail.giaTreEm} đ</h4>
+                                            <h4 className="side-title">Giá từ: {tourDetail.giaTreNho} đ</h4>
                                             <div className="subscribe-form-three">
                                                 {/* <form method="post" action="https://demo.w3layouts.com/demos_new/template_demo/04-04-2020/stroll-liberty-demo_Free/717367814/web/contact.html">
                                                     <div className="form-group">
