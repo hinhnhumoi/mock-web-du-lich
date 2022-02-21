@@ -13,12 +13,11 @@ const Home = () => {
         response.then(res => setTours(res.content));
     }, [])
 
-
     return (
         <>
             <SliderMain />
             <BottomGrid />
-            <Slick title="Du lich noi tieng" tours={tours} />
+            <Slick title="Tour du lịch nổi tiếng" tours={tours} />
         </>
     )
 }
