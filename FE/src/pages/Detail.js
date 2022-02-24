@@ -19,7 +19,7 @@ const Detail = () => {
     useEffect(() => {
         const response = TourApi.getById(`${id}`);
         response.then(res => setTourDetail(res));
-    }, [id])
+    }, [id]);
 
     return (
         <>

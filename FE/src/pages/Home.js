@@ -11,13 +11,13 @@ const Home = () => {
     useEffect(() => {
         const response = TourApi.getAll(1, 6);
         response.then(res => setTours(res.content));
-    }, [])
+    }, []);
 
     return (
         <>
             <SliderMain />
             <BottomGrid />
-            <Slick title="Tour du lịch nổi tiếng" tours={tours} />
+            <Slick title="Tour du lịch" tours={tours} />
         </>
     )
 }
