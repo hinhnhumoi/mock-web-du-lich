@@ -16,7 +16,8 @@ const SlickItem = ({ tour }) => {
       </div>
       <div className="gal-slide-info">
 
-        <h6 className="mt-sm-2 mt-1">{tour.tenTour}<span>{tour.giaNguoiLon}</span></h6>
+        <h6 className="mt-sm-2 mt-1">{tour.tenTour}<br></br>
+        <span>{tour.giaNguoiLon} &#8363;</span></h6>
 
       </div>
     </div>
