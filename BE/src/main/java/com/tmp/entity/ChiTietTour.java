@@ -40,5 +40,5 @@ public class ChiTietTour implements Serializable {
 
     @ManyToOne
     @JoinColumn(name = "id")
-    private Users user;
+    private User user;
 }

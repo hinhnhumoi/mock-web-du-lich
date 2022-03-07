@@ -7,8 +7,8 @@ import java.io.Serializable;
 
 @Data
 @Entity
-@Table(name = "users")
-public class Users implements Serializable {
+@Table(name = "user")
+public class User implements Serializable {
     @Column(name = "id")
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -41,4 +41,11 @@ public class Users implements Serializable {
     @ManyToOne
     @JoinColumn(name = "id_cv")
     private ChucVu chucVu;
+
+    @Column(name = "`avatarUrl`")
+    private String avatarUrl;
+
+    @Enumerated(EnumType.ORDINAL)
+    @Column(name = "`Status`")
+    private UserStatus status = UserStatus.NOT_ACTIVE;
 }
