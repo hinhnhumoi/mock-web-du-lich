@@ -29,7 +29,7 @@ const SignUp = (props) => {
   };
 
   const redirectToLogin = () => {
-    props.history.push("/auth/sign-in");
+    props.history.push("/sign-in");
   };
 
   return (
@@ -37,38 +37,28 @@ const SignUp = (props) => {
       <div className="text-center mt-4">
         <h1 className="h2">Get started</h1>
         <p className="lead">
-          Start creating account to experience in VTI Academy.
+          Start creating account to experience in VTI Tour Sale Management.
         </p>
       </div>
       <Formik
         initialValues={{
-          firstname: "",
-          lastname: "",
-          username: "",
+          fullName: "",
+          CMND: "",
+          address: "",
           email: "",
+          phoneNumber:"",
           password: "",
           confirmPassword: "",
         }}
         validationSchema={Yup.object({
-          firstname: Yup.string()
+          fullName: Yup.string()
             .max(50, "Must be less than 50 characters")
             .required("Required"),
-          lastname: Yup.string()
-            .max(50, "Must be less than 50 characters")
+          CMND: Yup.number()
+            .typeError('you must specify a number')
             .required("Required"),
-          username: Yup.string()
-            .min(6, "Must be between 6 and 50 characters.")
-            .max(50, "Must be between 6 and 50 characters.")
-            .required("Required")
-            .test(
-              "checkExistsUsername",
-              "This username is already registered.",
-              async (username) => {
-                // call api
-                const isExists = await UserApi.existsByUsername(username);
-                return !isExists;
-              }
-            ),
+          address: Yup.string()
+            .required("Required"),
           email: Yup.string()
             .email("Invalid email address")
             .required("Required")
@@ -81,6 +71,10 @@ const SignUp = (props) => {
                 return !isExists;
               }
             ),
+          phoneNumber: Yup.number()
+            .typeError('you must specify a number')
+            .max(10,"Your phone number has 10 number")
+            .required("Required"),
           password: Yup.string()
             .min(6, "Must be between 6 and 50 characters.")
             .max(50, "Must be between 6 and 50 characters.")
@@ -99,11 +93,12 @@ const SignUp = (props) => {
           try {
             // call api
             await UserApi.create(
-              values.firstname,
-              values.lastname,
-              values.username,
+              values.fullName,
+              values.CMND,
+              values.address,
               values.email,
-              values.password
+              values.password,
+              values.phoneNumber,
             );
             // message
             setEmail(values.email);
@@ -125,30 +120,41 @@ const SignUp = (props) => {
                       label="First Name"
                       type="text"
                       bsSize="lg"
-                      name="firstname"
-                      placeholder="Enter your first name"
+                      name="fullName"
+                      placeholder="Enter your full name"
                       component={ReactstrapInput}
                     />
                   </FormGroup>
 
                   <FormGroup>
                     <FastField
-                      label="Last Name"
-                      type="text"
+                      label="Identification "
+                      type="number"
                       bsSize="lg"
-                      name="lastname"
-                      placeholder="Enter your last name"
+                      name="CMND"
+                      placeholder="Enter your Identification "
                       component={ReactstrapInput}
                     />
                   </FormGroup>
 
                   <FormGroup>
                     <FastField
-                      label="UserName"
+                      label="Phone Number"
+                      type="number"
+                      bsSize="lg"
+                      name="phoneNumber"
+                      placeholder="Enter your phone number"
+                      component={ReactstrapInput}
+                    />
+                  </FormGroup>
+
+                  <FormGroup>
+                    <FastField
+                      label="Address"
                       type="text"
                       bsSize="lg"
-                      name="username"
-                      placeholder="Enter your username"
+                      name="address"
+                      placeholder="Enter your address"
                       component={ReactstrapInput}
                     />
                   </FormGroup>

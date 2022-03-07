@@ -133,7 +133,7 @@ const SignIn = (props) => {
                 <div className="text-center">
                   <img
                     src={avatar}
-                    alt="Chris Wood"
+                    alt="Avatar"
                     className="img-fluid rounded-circle"
                     width="132"
                     height="132"
