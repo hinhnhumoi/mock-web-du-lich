@@ -14,6 +14,10 @@
  Date: 21/02/2022 20:59:18
 */
 
+DROP DATABASE IF EXISTS travel_v1;
+CREATE DATABASE travel_v1;
+USE travel_v1;
+
 SET NAMES utf8mb4;
 SET FOREIGN_KEY_CHECKS = 0;
 
