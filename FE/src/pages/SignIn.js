@@ -1,13 +1,20 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Formik, FastField, Form } from "formik";
 import { ReactstrapInput } from "reactstrap-formik";
 import LoginApi from "./../api/LoginApi";
 import * as Yup from "yup";
-import { Button, Card, CardBody, FormGroup, CustomInput,Modal,
+import {
+  Button,
+  Card,
+  CardBody,
+  FormGroup,
+  CustomInput,
+  Modal,
   ModalHeader,
   ModalBody,
-  ModalFooter } from "reactstrap";
+  ModalFooter,
+} from "reactstrap";
 import avatar from "./../assets/images/vti_avatar.jpg";
 import storage from "./../storage/Storage";
 import { toastr } from "react-redux-toastr";
@@ -18,6 +25,7 @@ import UserApi from "./../api/UserApi";
 // import { connect } from "react-redux";
 
 const SignIn = (props) => {
+  let navigate = useNavigate();
 
   const [isOpenModal, setOpenModal] = useState(false);
 
@@ -39,12 +47,14 @@ const SignIn = (props) => {
       progressBar: true,
       position: "top-right",
     };
-  
+
     toastr.error(title, message, options);
   };
 
   //Check for remember me
-  const [checkedRememberMe,setCheckedRememberMe] = useState(storage.isRememberMe());
+  const [checkedRememberMe, setCheckedRememberMe] = useState(
+    storage.isRememberMe()
+  );
 
   return (
     <React.Fragment>
@@ -80,36 +90,29 @@ const SignIn = (props) => {
               setEmail(result.email);
               setOpenModal(true);
             } else {
+              console.log(result);
               //Set remember me
               storage.setRememberMe(checkedRememberMe);
 
               //Save token to storage
               storage.setToken(result.token);
+
               //Save userInformation to storage
-              storage.setUserInfo(
-                result.userName,
-                result.email,
-                result.firstName,
-                result.lastName,
-                result.role,
-                result.status
-              );
+              storage.setUserInfo(result);
 
               //Save token, user info to redux
-              props.setTokenInfo(result.token);
-              props.setUserLoginInfo(
-                result.userName,
-                result.email,
-                result.firstName,
-                result.lastName,
-                result.role,
-                result.status
-              );
+              //props.setTokenInfo(result.token);
+              // props.setUserLoginInfo(
+              //   result.ten,
+              //   result.chucVu,
+              //   result.id,
+              //   result.status
+              // );
 
               //Redirect to homepage
-              props.history.push("/dashboard/default");
+              // props.history.push("/home");
+              navigate('/home');
             }
-
           } catch (error) {
             if (error.status === 401) {
               //Show error notification
@@ -119,7 +122,8 @@ const SignIn = (props) => {
               );
             } else {
               //Redirect to error server page
-              props.history.push("/auth/500");
+              // props.history.push("/auth/500");
+              // console.error("False!");
             }
           }
         }}
@@ -172,7 +176,7 @@ const SignIn = (props) => {
                       id="rememberMe"
                       label="Remember me next time"
                       defaultChecked={checkedRememberMe}
-                      onChange ={() => setCheckedRememberMe(!checkedRememberMe)}
+                      onChange={() => setCheckedRememberMe(!checkedRememberMe)}
                     />
                   </div>
 
@@ -197,10 +201,10 @@ const SignIn = (props) => {
         <ModalHeader>You need to confirm your account</ModalHeader>
 
         <ModalBody className="m-3">
+          <p className="mb-0">Your account is not active.</p>
           <p className="mb-0">
-            Your account is not active.
+            Please check your email (<b>{email}</b>) to active account.
           </p>
-          <p className="mb-0">Please check your email (<b>{email}</b>) to active account.</p>
         </ModalBody>
 
         <ModalFooter>
@@ -211,7 +215,7 @@ const SignIn = (props) => {
           >
             Resend
           </Button>{" "}
-          <Button color="primary" onClick={()=> setOpenModal(false)}>
+          <Button color="primary" onClick={() => setOpenModal(false)}>
             Close
           </Button>
         </ModalFooter>

@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom'
 import g1 from '../assets/images/g1.jpg'
 
 const SlickItem = ({ tour }) => {
+  console.log(tour);
+
   return (
     <div className="content-left-sec gal-slide-grid">
       <div className="gal-slide-img">
@@ -11,7 +13,7 @@ const SlickItem = ({ tour }) => {
           state: { tour: tour }
         }}
         >
-          <img src={g1} className="img img-fluid" alt="" />
+          <img src={tour.moTaTour && `http://127.0.0.1:8887/${tour.moTaTour}`} className="img img-fluid" alt="" />
         </Link>
       </div>
       <div className="gal-slide-info">

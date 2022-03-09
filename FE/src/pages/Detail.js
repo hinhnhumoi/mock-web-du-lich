@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { Table } from 'react-bootstrap'
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import TourApi from '../api/TourApi'
 import SpaceDiv from '../components/SpaceDiv'
 import '../assets/css/style-liberty.css'
@@ -20,6 +20,12 @@ const Detail = () => {
         const response = TourApi.getById(`${id}`);
         response.then(res => setTourDetail(res));
     }, [id]);
+
+    let navigate = useNavigate(); 
+    const routeChange = () =>{ 
+        let path = `/checkout/${tourDetail.id}`; 
+        navigate(path);
+    }
 
     return (
         <>
@@ -68,71 +74,8 @@ const Detail = () => {
                                             </footer>
                                         </blockquote>
 
-                                        <footer className="blog-post-details-footer">
-                                            <div className="row">
-                                                <div className="col-md-6 text-center text-sm-left">
-                                                    <div className="post-tags"><span>Tags: </span><a href="index.html">Travel, </a> <a href="index.html">
-                                                        Hotel</a></div>
-                                                </div>
-                                                <div className="col-md-6 text-center text-sm-right">
-                                                    <div className="share-icons mt-sm-20">
-                                                        <a href="index.html"><span className="fa fa-facebook"></span></a>
-                                                        <a href="index.html"><span className="fa fa-twitter"></span></a>
-                                                        <a href="index.html"><span className="fa fa-tumblr"></span></a>
-                                                        <a href="index.html"><span className="fa fa-reddit"></span></a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </footer>
-
-
-
-                                        <div className="row author-card author-listhny my-lg-5 my-4">
-                                            <div className="author-left col-sm-2 mb-sm-0 mb-4 pl-0">
-                                                <a href="index.html">
-                                                    <img className="img-fluid" src="assets/images/t1.jpg" alt=" " />
-                                                </a>
-                                            </div>
-                                            <div className="author-right col-sm-10 pr-lg-0 position-relative">
-
-                                                <h4><a href="index.html" className="title-team-28">Harvard milan</a></h4>
-                                                <p className="para-team mb-0">Vivamus a ligula quam. Ut blandit eu leo non
-                                                    suscipit.Nulla
-                                                    quis lorem
-                                                    neque, mattis venenatis lectus. In interdum ullamcorper dolor.Lorem ipsum
-                                                    dolor sit amet.</p>
-
-                                                <div className="share-icons mt-4">
-                                                    <a href="index.html"><span className="fa fa-facebook"></span></a>
-                                                    <a href="index.html"><span className="fa fa-twitter"></span></a>
-                                                    <a href="index.html"><span className="fa fa-tumblr"></span></a>
-                                                    <a href="index.html"><span className="fa fa-pinterest"></span></a>
-                                                    <a href="index.html"><span className="fa fa-google-plus" ></span></a>
-                                                    <a href="index.html" className="vk"><span className="fa fa-vk"></span></a>
-                                                </div>
-
-                                            </div>
-                                        </div>
-
-                                        <nav className="post-navigation row mt-5">
-                                            <div className="post-prev col-md-6">
-                                                <span className="nav-title">
-                                                    Prev Post </span>
-                                                <a href="#url" rel="prev">
-                                                    <h5>Lorem ipsum dolor sit amet</h5>
-                                                </a>
-                                            </div>
-                                            <div className="post-next col-md-6 text-md-right mt-md-0 mt-4">
-                                                <span className="nav-title">
-                                                    Next Post </span>
-                                                <a href="#url" rel="next">
-                                                    <h5>Lorem ipsum dolor sit amet</h5>
-                                                </a>
-                                            </div>
-                                        </nav>
-                                        {/* comment */}
-
-                                        {/* reply */}
+                                        
+                                       
                                     </div>
                                 </div>
                             </div>
@@ -188,6 +131,7 @@ const Detail = () => {
                                                         <button type="submit" className="btn btn-block btn-style btn-primary">Đặt Tour</button>
                                                     </div>
                                                 </form> */}
+                                                <button className="btn btn-block btn-style btn-primary" onClick={routeChange}>Đặt Tour</button>
                                             </div>
                                         </div>
                                     </div>

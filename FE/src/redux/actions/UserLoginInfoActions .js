@@ -1,14 +1,13 @@
 import * as types from "../constants";
 
-export function setUserLoginInfo(userName,email,firstName,lastName,role,status) {
+export function setUserLoginInfo(ten,chucVu,id,status,token) {
   return {
     type: types.USER_LOGIN_INFO,
     payload: {
-      "userName": userName,
-      "email": email,
-      "firstName": firstName,
-      "lastName": lastName,
-      "role":role,
+      "ten" : ten,
+      "chucVu": chucVu,
+      "id": id,
+      "token": token,
       "status":status
     }
   };
