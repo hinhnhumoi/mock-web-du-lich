@@ -1,6 +1,8 @@
-package com.tmp.config.security;
+package com.tmp.config.configuration;
 
 import com.google.common.collect.ImmutableList;
+import com.tmp.config.security.JWTAuthenticationFilter;
+import com.tmp.config.security.JWTAuthorizationFilter;
 import com.tmp.service.IUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;

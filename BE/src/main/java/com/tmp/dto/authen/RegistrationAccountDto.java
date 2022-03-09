@@ -14,9 +14,12 @@ public class RegistrationAccountDto {
 
     private String password;
 
-    private String firstName;
+    private String ten;
 
-    private String lastName;
+    private String chucVu;
 
-    private String role;
+    private String cmnd;
+
+    private String sdt;
+
 }

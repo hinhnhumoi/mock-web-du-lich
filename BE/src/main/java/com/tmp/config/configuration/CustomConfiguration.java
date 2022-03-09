@@ -1,4 +1,4 @@
-package com.tmp.config.security;
+package com.tmp.config.configuration;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.context.annotation.Bean;

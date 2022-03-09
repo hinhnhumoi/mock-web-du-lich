@@ -39,7 +39,7 @@ public class UserService implements IUserService {
 
     @Override
     public User getUserByUsername(String username) {
-        return repository.findByUserName(username);
+        return repository.findUserByUserName(username);
     }
 
     @Override
@@ -88,7 +88,7 @@ public class UserService implements IUserService {
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        User user = repository.findByUserName(username);
+        User user = repository.findUserByUserName(username);
 
         if (user == null) {
             throw new UsernameNotFoundException(username);

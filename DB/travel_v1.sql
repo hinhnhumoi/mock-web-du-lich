@@ -318,8 +318,8 @@ INSERT INTO `tour` VALUES (48, 2, 4, 4, 'xe bus', 25, 'Du Lịch Mai Châu - M�
 -- ----------------------------
 -- Table structure for users
 -- ----------------------------
-DROP TABLE IF EXISTS `users`;
-CREATE TABLE `users`  (
+DROP TABLE IF EXISTS `user`;
+CREATE TABLE `user`  (
   `id` int NOT NULL AUTO_INCREMENT,
   `ten` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
   `cmnd` int NOT NULL,
@@ -330,20 +330,33 @@ CREATE TABLE `users`  (
   `username` varchar(30) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
   `password` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
   `id_cv` int NOT NULL,
-  `remember_token` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NULL DEFAULT NULL,
+  `Status`			INT  DEFAULT 0 , -- 0:Not Active, 1: Active
+  `avatarUrl` varchar(600),
   PRIMARY KEY (`id`) USING BTREE,
   INDEX `id_cv`(`id_cv`) USING BTREE,
-  CONSTRAINT `users_ibfk_1` FOREIGN KEY (`id_cv`) REFERENCES `chucvu` (`id_cv`) ON DELETE RESTRICT ON UPDATE RESTRICT
+  CONSTRAINT `user_ibfk_1` FOREIGN KEY (`id_cv`) REFERENCES `chucvu` (`id_cv`) ON DELETE RESTRICT ON UPDATE RESTRICT
 ) ENGINE = InnoDB AUTO_INCREMENT = 16 CHARACTER SET = utf8 COLLATE = utf8_unicode_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of users
 -- ----------------------------
-INSERT INTO `users` VALUES (2, 'Nguyễn thị ngân', 2059437335, 'Điện trung - Điện Bàn - Quảng nam', 1226452598, 'lenguyenthanhtuyen97@gmail.com', 'ngân', 'ngannguyen', '$2y$10$P8BW2.NPJC0avl8dYnJxHeSJj8r./dM1GlB9U/gzaXZIIn6VKMGtC', 1, 'Hbq759wQzgWuArgCfNAWXrXbcszw8hVzL5E7DC7r7jtuEFoGTvQVMKOi9aiD');
-INSERT INTO `users` VALUES (9, 'Lê nguyễn thanh tuyền', 205943664, 'Điện quang - Điện bàn - Quảng nam', 1226452598, 'lenguyenthanhtuyen97@gmail.com', 'Lê nguyễn thanh tuyền', 'admin', '$2y$10$4OPYhSdN/E8kYI8R9/XOLe2oGMLmJMZqfWRntc4L.BOMF0ktSG9My', 4, 'JaTZUeZcP7VMzgBDwen1LktzROxMoEPvoTuHz9sJ7pGIpPMkqYu7L8DNnSOS');
-INSERT INTO `users` VALUES (10, 'Nguyễn Thị Ngân', 205943664, 'Hòa Giang - Điện trung - Điện Bàn - Quảng nam', 1226452598, 'levantinh@gmail.com', 'lê văn tỉnh', 'ngannguyen', '$2y$10$67hudI0nqJpTQ9Ye90ZCX.lbkPuue3vX9Qtf5tZO0QNXeuXdHiP36', 1, NULL);
-INSERT INTO `users` VALUES (12, 'lê văn tịnh', 205943664, 'điện quang điện bàn quảng nam', 1226452598, 'lenguyenthanhtuyen97@gmail.com', 'bvhjk', 'tinhle', '$2y$10$ucxVKawI1N3hinTnPIwx5eddDcw.uH8lIL4o2VZ1m4C4pZNRYz3q6', 5, 'm4bykoPgQ3CF2nRw5qJKvusMebJk4RnaWUAXykKDgapLqybwpeqtlvdbIvTr');
-INSERT INTO `users` VALUES (14, 'czx', 2059437335, 'quảng nam', 1226452598, 'lenguyenthanhtuyen97@gmail.com', 'abxxcdsafdv', 'tuyenlnt', '$2y$10$H3dpN1wBS0XfA8S1IYYprOhE8cAOpGPT04eMqW0XOnet0Qg6pEpHC', 4, NULL);
-INSERT INTO `users` VALUES (15, 'a', 2059437335, 'đ', 1226452598, 'lenguyenthanhtuyen97@gmail.com', 'Lê nguyễn thanh tuyền', 'a', '$2y$10$XIsjlIEUXNkovdPq0Zf9Wu6nOADYku8WT3DBl66p3Ba6UMd.mbiDm', 1, 'RlAfn7oLXkhxYgsFZyp24As9aB7IWFgTdubM9hE5h3z7E7pEAmNLIAWo8anF');
+INSERT INTO `user` VALUES (2	, 'Nguyễn thị ngân'			, 2059437335	, ' Quảng nam'		, 1226452598, 'lenguyenthanhtuyen97@gmail.com'	, 'note1'	, 'ngannguyen'	, '$2y$10$P8BW2.NPJC0avl8dYnJxHeSJj8r./dM1GlB9U/gzaXZIIn6VKMGtC'	, 1		,1 		,'' );
+INSERT INTO `user` VALUES (9	, 'Lê nguyễn thanh tuyền'	, 205943664		, ' Quảng nam'		, 1226452598, 'lenguyenthanhtuyen97@gmail.com'	, 'note2'	, 'tthuyen'		, '$2y$10$4OPYhSdN/E8kYI8R9/XOLe2oGMLmJMZqfWRntc4L.BOMF0ktSG9My'	, 4		,1 		,'' );
+INSERT INTO `user` VALUES (10	, 'Nguyễn Thị Ngân'			, 205943664		, ' Quảng nam'		, 1226452598, 'levantinh@gmail.com'				, 'note3'	, 'tuyen2'		, '$2y$10$67hudI0nqJpTQ9Ye90ZCX.lbkPuue3vX9Qtf5tZO0QNXeuXdHiP36'	, 1		,1 		,'' );
+INSERT INTO `user` VALUES (12	, 'lê văn tịnh'				, 205943664		, ' quảng nam'		, 1226452598, 'lenguyenthanhtuyen97@gmail.com'	, 'note4'	, 'tinhle'		, '$2y$10$ucxVKawI1N3hinTnPIwx5eddDcw.uH8lIL4o2VZ1m4C4pZNRYz3q6'	, 5		,1 		,'' );
+INSERT INTO `user` VALUES (14	, 'czx'						, 2059437335	, 'quảng nam'		, 1226452598, 'lenguyenthanhtuyen97@gmail.com'	, 'note5'	, 'tuyenlnt'	, '$2y$10$H3dpN1wBS0XfA8S1IYYprOhE8cAOpGPT04eMqW0XOnet0Qg6pEpHC'	, 4		,1 		,'' );
+INSERT INTO `user` VALUES (15	, 'a'						, 2059437335	, 'đ'				, 1226452598, 'lenguyenthanhtuyen97@gmail.com'	, 'note6'	, 'a'			, '$2y$10$XIsjlIEUXNkovdPq0Zf9Wu6nOADYku8WT3DBl66p3Ba6UMd.mbiDm'	, 1		,1		,'' );
+INSERT INTO `user` VALUES (16	, 'admin'					, 123456789		, 'VP'				, 1226452598, 'lenguyenthanhtuyen97@gmail.com'	, 'note7'	, 'admin'		, '$$2a$12$M4f5oWU.pwjw/IYLUpNilu7JMRl4AV7SEcUUCsDaX//ZNBE6vA4NO'	, 4		,1		,'' );
 
 SET FOREIGN_KEY_CHECKS = 1;
+
+-- Create table Registration_User_Token
+DROP TABLE IF EXISTS 	`Token`;
+CREATE TABLE IF NOT EXISTS `Token` ( 	
+	id 				INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+	`token`	 		CHAR(36) NOT NULL UNIQUE,
+	UserID     		INT NOT NULL,
+	`expiryDate` 	DATETIME NOT NULL,
+    `type`			Varchar(50),
+    FOREIGN KEY (UserID) REFERENCES  `user`(`id`)
+);
