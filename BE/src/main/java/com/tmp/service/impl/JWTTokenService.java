@@ -72,6 +72,7 @@ public class JWTTokenService implements IJWTTokenService {
         LoginInfoDto loginInfoDto = modelMapper.map(user , LoginInfoDto.class);
         loginInfoDto.setToken(jwt);
         loginInfoDto.setRefreshToken(refreshToken);
+        loginInfoDto.setChucVu(user.getChucVu().getTenCV());
         // convert to json
         ObjectWriter ow = new ObjectMapper().writer().withDefaultPrettyPrinter();
         String json = ow.writeValueAsString(loginInfoDto);
