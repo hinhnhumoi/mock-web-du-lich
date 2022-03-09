@@ -13,10 +13,9 @@
 
  Date: 21/02/2022 20:59:18
 */
-
-DROP DATABASE IF EXISTS travel_v1;
-CREATE DATABASE travel_v1;
-USE travel_v1;
+Drop database if exists travel_v1;
+create database travel_v1;
+use travel_v1;
 
 SET NAMES utf8mb4;
 SET FOREIGN_KEY_CHECKS = 0;
@@ -58,7 +57,7 @@ CREATE TABLE `chitiettour`  (
   INDEX `id_tour`(`id_tour`) USING BTREE,
   INDEX `id`(`id`) USING BTREE,
   CONSTRAINT `chitiettour_ibfk_1` FOREIGN KEY (`id_tour`) REFERENCES `tour` (`id_tour`) ON DELETE RESTRICT ON UPDATE RESTRICT,
-  CONSTRAINT `chitiettour_ibfk_2` FOREIGN KEY (`id`) REFERENCES `users` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT
+  CONSTRAINT `chitiettour_ibfk_2` FOREIGN KEY (`id`) REFERENCES `user` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT
 ) ENGINE = InnoDB AUTO_INCREMENT = 61 CHARACTER SET = utf8 COLLATE = utf8_unicode_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
@@ -344,13 +343,13 @@ CREATE TABLE `user`  (
 -- ----------------------------
 -- Records of users
 -- ----------------------------
-INSERT INTO `user` VALUES (2	, 'Nguyễn thị ngân'			, 2059437335	, ' Quảng nam'		, 1226452598, 'lenguyenthanhtuyen97@gmail.com'	, 'note1'	, 'ngannguyen'	, '$2y$10$P8BW2.NPJC0avl8dYnJxHeSJj8r./dM1GlB9U/gzaXZIIn6VKMGtC'	, 1		,1 		,'' );
+INSERT INTO `user` VALUES (2	, 'Nguyễn thị ngân'			, 2059437335	, ' Quảng nam'		, 1226452598, 'lenguyenthanhtuyen97@gmail.com'	, 'note1'	, 'ngannguyen'	, '$2a$10$W2neF9.6Agi6kAKVq8q3fec5dHW8KUA.b0VSIGdIZyUravfLpyIFi'	, 1		,1 		,'' );
 INSERT INTO `user` VALUES (9	, 'Lê nguyễn thanh tuyền'	, 205943664		, ' Quảng nam'		, 1226452598, 'lenguyenthanhtuyen97@gmail.com'	, 'note2'	, 'tthuyen'		, '$2y$10$4OPYhSdN/E8kYI8R9/XOLe2oGMLmJMZqfWRntc4L.BOMF0ktSG9My'	, 4		,1 		,'' );
 INSERT INTO `user` VALUES (10	, 'Nguyễn Thị Ngân'			, 205943664		, ' Quảng nam'		, 1226452598, 'levantinh@gmail.com'				, 'note3'	, 'tuyen2'		, '$2y$10$67hudI0nqJpTQ9Ye90ZCX.lbkPuue3vX9Qtf5tZO0QNXeuXdHiP36'	, 1		,1 		,'' );
 INSERT INTO `user` VALUES (12	, 'lê văn tịnh'				, 205943664		, ' quảng nam'		, 1226452598, 'lenguyenthanhtuyen97@gmail.com'	, 'note4'	, 'tinhle'		, '$2y$10$ucxVKawI1N3hinTnPIwx5eddDcw.uH8lIL4o2VZ1m4C4pZNRYz3q6'	, 5		,1 		,'' );
 INSERT INTO `user` VALUES (14	, 'czx'						, 2059437335	, 'quảng nam'		, 1226452598, 'lenguyenthanhtuyen97@gmail.com'	, 'note5'	, 'tuyenlnt'	, '$2y$10$H3dpN1wBS0XfA8S1IYYprOhE8cAOpGPT04eMqW0XOnet0Qg6pEpHC'	, 4		,1 		,'' );
 INSERT INTO `user` VALUES (15	, 'a'						, 2059437335	, 'đ'				, 1226452598, 'lenguyenthanhtuyen97@gmail.com'	, 'note6'	, 'a'			, '$2y$10$XIsjlIEUXNkovdPq0Zf9Wu6nOADYku8WT3DBl66p3Ba6UMd.mbiDm'	, 1		,1		,'' );
-INSERT INTO `user` VALUES (16	, 'admin'					, 123456789		, 'VP'				, 1226452598, 'lenguyenthanhtuyen97@gmail.com'	, 'note7'	, 'admin'		, '$$2a$12$M4f5oWU.pwjw/IYLUpNilu7JMRl4AV7SEcUUCsDaX//ZNBE6vA4NO'	, 4		,1		,'' );
+INSERT INTO `user` VALUES (16	, 'admin'					, 123456789		, 'VP'				, 1226452598, 'lenguyenthanhtuyen97@gmail.com'	, 'note7'	, 'adminn'		, '$2a$12$M4f5oWU.pwjw/IYLUpNilu7JMRl4AV7SEcUUCsDaX//ZNBE6vA4NO'	, 4		,1		,'' );
 
 SET FOREIGN_KEY_CHECKS = 1;
 
