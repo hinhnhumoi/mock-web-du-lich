@@ -105,7 +105,7 @@ public class JWTTokenService implements IJWTTokenService {
                 new UsernamePasswordAuthenticationToken(
                         username,
                         null,
-                        AuthorityUtils.createAuthorityList(user.getChucVu().toString())) :
+                        AuthorityUtils.createAuthorityList(user.getChucVu().getTenCV())) :
                 null;
     }
 
@@ -138,7 +138,7 @@ public class JWTTokenService implements IJWTTokenService {
         //Remove old refresh token if exists
         refreshTokenRepository.deleteByToken(refreshToken);
         return TokenRefreshResponse.builder().token(newToken).refreshToken(newRefreshToken).id(user.getId()).ten(user.getTen())
-                .chucVu(user.getChucVu().toString()).build();
+                .chucVu(user.getChucVu().getTenCV()).build();
     }
 
     /**

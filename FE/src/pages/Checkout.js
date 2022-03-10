@@ -70,41 +70,53 @@ const Checkout = () => {
               <Table>
                 <thead>
                   <tr>
-                    <th colSpan={2}>Du lịch Đà Nẵng</th>
+                    <th colSpan={2}>{tourDetail.tenTour}</th>
                   </tr>
                 </thead>
                 <tbody>
                   <tr>
                     <td>
-                      <b>Mã tour</b>
+                      <b>Thời gian</b>
                     </td>
-                    <td>15985</td>
+                    <td>{tourDetail.soNgay} ngày {tourDetail.soDem} đêm</td>
                   </tr>
                   <tr>
                     <td>
-                      <b>Thời gian:</b>
+                      <b>Địa điểm</b>
                     </td>
-                    <td>3 ngày 2 đêm</td>
+                    <td>{tourDetail.diaDiem} - {tourDetail.tinh}</td>
                   </tr>
                   <tr>
                     <td>
-                      <b>Khởi hành:</b>
+                      <b>Lịch Trình</b>
                     </td>
                     <td>
-                      14,18,21,25/02; 04,11,18,25/03; 01,04,15,18,22,25/04{" "}
+                      {tourDetail.lichTrinh}
                     </td>
                   </tr>
                   <tr>
                     <td>
-                      <b>Vận Chuyển:</b>
+                      <b>Phương tiện</b>
                     </td>
-                    <td>Xe du lịch, Máy bay</td>
+                    <td>{tourDetail.phuongTien}</td>
                   </tr>
                   <tr>
                     <td>
-                      <b>Xuất phát: </b>
+                      <b>Số lượng tối đa </b>
                     </td>
-                    <td>Từ Hồ Chí Minh </td>
+                    <td>{tourDetail.sltd} </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <b>Giá người lớn </b>
+                    </td>
+                    <td>{tourDetail.giaNguoiLon} VNĐ </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <b>Giá trẻ em </b>
+                    </td>
+                    <td>{tourDetail.giaTreEm} VNĐ</td>
                   </tr>
                 </tbody>
               </Table>
@@ -127,42 +139,23 @@ const Checkout = () => {
               <Table>
                 <thead>
                   <tr>
-                    <th colSpan={2}>Du lịch Đà Nẵng</th>
+                    <th colSpan={2}>Công ty du lịch Travel</th>
                   </tr>
                 </thead>
                 <tbody>
                   <tr>
                     <td>
-                      <b>Mã tour</b>
+                      <b>Địa chỉ:</b>
                     </td>
-                    <td>15985</td>
+                    <td>số 307 đường X phường Y thành phố Z</td>
                   </tr>
                   <tr>
                     <td>
-                      <b>Thời gian:</b>
+                      <b>SĐT liên hệ:</b>
                     </td>
-                    <td>3 ngày 2 đêm</td>
+                    <td>0123456789</td>
                   </tr>
-                  <tr>
-                    <td>
-                      <b>Khởi hành:</b>
-                    </td>
-                    <td>
-                      14,18,21,25/02; 04,11,18,25/03; 01,04,15,18,22,25/04{" "}
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <b>Vận Chuyển:</b>
-                    </td>
-                    <td>Xe du lịch, Máy bay</td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <b>Xuất phát: </b>
-                    </td>
-                    <td>Từ Hồ Chí Minh </td>
-                  </tr>
+
                 </tbody>
               </Table>
             </div>
