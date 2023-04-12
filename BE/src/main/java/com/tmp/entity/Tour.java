@@ -46,8 +46,8 @@ public class Tour implements Serializable {
     @Column(name = "lichtrinh")
     private String lichTrinh;
 
-    @Column(name = "bando")
-    private String banDo;
+//    @Column(name = "bando")
+//    private String banDo;
 
     @ManyToOne
     @JoinColumn(name = "id_lt")
@@ -68,4 +68,5 @@ public class Tour implements Serializable {
     @JsonManagedReference
     @OneToMany(mappedBy = "tour_chitiet")
     private List<ChiTietTour> chiTietTourList;
+
 }

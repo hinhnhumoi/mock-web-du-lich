@@ -1,4 +1,4 @@
-package com.tmp.controller;
+package com.tmp.controller.admin;
 
 import com.tmp.dto.TourDto;
 import com.tmp.entity.Tour;
@@ -12,16 +12,16 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping(value = "api/v1/tours")
+@RequestMapping(value = "api/v1/toursAdmin")
 @CrossOrigin("*")
-public class TourController {
+public class TourControllerAdmin {
     @Autowired
     private ITourService service;
 
     @Autowired
     private ModelMapper modelMapper;
 
-    @GetMapping()
+    @GetMapping("")
     public ResponseEntity<?> getAllTours(Pageable pageable) {
         Page<Tour> entities = service.getTourPaging(pageable);
         return new ResponseEntity<>(entities, HttpStatus.OK);
@@ -40,6 +40,12 @@ public class TourController {
     public ResponseEntity<?> addTour(@RequestBody TourDto dto){
         TourDto tourDto = service.addTour(dto);
         return new ResponseEntity<>(tourDto,HttpStatus.OK);
+    }
+
+    @PutMapping("/{id}")
+    public ResponseEntity<?> updateTour(@PathVariable int id,@RequestBody TourDto tourDto){
+        TourDto dto = service.updateTour(id,tourDto);
+        return new ResponseEntity<>(dto,HttpStatus.OK);
     }
 
 

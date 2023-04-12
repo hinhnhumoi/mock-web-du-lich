@@ -16,12 +16,13 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping(value = "api/v1/loaitours")
 @CrossOrigin("*")
 public class LoaiTourController {
+
     @Autowired
     private ILoaiTourService loaiTourService;
 
-    @GetMapping()
-    public ResponseEntity<?> getAllLoaiTourPaging(Pageable pageable) {
-        Page<LoaiTour> entities = loaiTourService.getLoaiTourPaging(pageable);
-        return new ResponseEntity<>(entities, HttpStatus.OK);
-    }
+//    @GetMapping()
+//    public ResponseEntity<?> getAllLoaiTourPaging(Pageable pageable) {
+//        Page<LoaiTour> entities = loaiTourService.getLoaiTourPaging(pageable);
+//        return new ResponseEntity<>(entities, HttpStatus.OK);
+//    }
 }

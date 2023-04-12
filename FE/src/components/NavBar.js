@@ -18,7 +18,7 @@ const NavBar = () => {
             <header className="top-headerhny">
               <nav className="navbar navbar-expand-lg navbar-light">
                 <Link className="navbar-brand" to="/">
-                  <span className="fa fa-globe" aria-hidden="true"></span>Travel
+                  <span className="fa fa-globe" aria-hidden="true"></span>Thanh Tung
                 </Link>
 
                 <button

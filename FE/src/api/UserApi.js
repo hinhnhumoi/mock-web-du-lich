@@ -21,6 +21,12 @@ const create = (firstname,lastname,username,email,password) => {
     return Api.post(url,body);
 }
 
+const datTour=(data)=>{
+    let urlPost = "/hangs"
+    return Api.post(urlPost,data);
+}
+
+
 const resendEmailToActiveAccount = (email)=>{
     
     const param = {
@@ -72,6 +78,6 @@ const updateProfile = (avatarUrl)=>{
 };
 
 // export
-const api = {existsByEmail,existsByUsername,create, resendEmailToActiveAccount, requestResetPassword,resendEmailToResetPassword,resetPassword,getProfile,updateProfile}
+const api = {existsByEmail,existsByUsername,create, resendEmailToActiveAccount, requestResetPassword,resendEmailToResetPassword,resetPassword,getProfile,updateProfile,datTour}
 export default api;
 

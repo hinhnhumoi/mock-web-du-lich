@@ -7,14 +7,16 @@ const SlickItem = ({ tour }) => {
 
   return (
     <div className="content-left-sec gal-slide-grid">
-      <div className="gal-slide-img">
-        <Link to={{
+       <Link to={{
           pathname: `/details/${tour.id}`,
           state: { tour: tour }
         }}
         >
+          
+      <div className="gal-slide-img">
+       
           <img src={tour.moTaTour && `http://127.0.0.1:8887/${tour.moTaTour}`} className="img img-fluid" alt="" />
-        </Link>
+       
       </div>
       <div className="gal-slide-info">
 
@@ -22,6 +24,7 @@ const SlickItem = ({ tour }) => {
         <span>{tour.giaNguoiLon} &#8363;</span></h6>
 
       </div>
+      </Link>
     </div>
   )
 }

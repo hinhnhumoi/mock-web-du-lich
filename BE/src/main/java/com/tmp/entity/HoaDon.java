@@ -1,13 +1,17 @@
 package com.tmp.entity;
 
-import lombok.Data;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 import org.hibernate.annotations.CreationTimestamp;
 
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
 
-@Data
+@Setter
+@Getter
+@NoArgsConstructor
 @Entity
 @Table(name = "hoadon")
 public class HoaDon implements Serializable {
@@ -27,7 +31,8 @@ public class HoaDon implements Serializable {
     @Column(name = "tinhtrang")
     private int tinhTrang;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "id_pd")
     private PhieuDat phieuDat;
+
 }

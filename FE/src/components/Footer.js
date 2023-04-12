@@ -13,7 +13,7 @@ const Footer = () => {
                                     <div className="col-lg-4 col-md-6 sub-one-left pr-lg-4">
                                         <h2>
                                             <a className="navbar-brand" href="index.html">
-                                                <span className="fa fa-globe" aria-hidden="true"></span>Travel
+                                                <span className="fa fa-globe" aria-hidden="true"></span>ThanhTungtour
                                             </a>
                                         </h2>
                                         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur hic odio

@@ -1,18 +1,20 @@
 package com.tmp.entity;
 
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.Data;
 import org.hibernate.annotations.CreationTimestamp;
 
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 
 @Data
 @Entity
 @Table(name = "phieudat")
 public class PhieuDat implements Serializable {
-    @Column(name = "id_pd")
+    @Column(name = "id")
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
@@ -21,6 +23,21 @@ public class PhieuDat implements Serializable {
     @Temporal(TemporalType.TIMESTAMP)
     @CreationTimestamp
     private Date createDate;
+
+    @Column(name = "ten")
+    private String ten;
+
+//    @Column(name = "cmnd")
+//    private String cmnd;
+
+    @Column(name = "diaChi")
+    private String diaChi;
+
+    @Column(name = "sdt")
+    private String sdt;
+
+    @Column(name = "email")
+    private String email;
 
     @Column(name = "treem")
     private int treEm;
@@ -50,7 +67,10 @@ public class PhieuDat implements Serializable {
     @JoinColumn(name = "id_chitiet")
     private ChiTietTour chiTietTour;
 
-    @ManyToOne
-    @JoinColumn(name = "id")
-    private User user;
+    @JsonManagedReference
+    @OneToMany(mappedBy = "phieuDat")
+    private List<HoaDon> hoaDons;
+
+
+
 }

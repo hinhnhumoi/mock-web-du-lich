@@ -4,20 +4,83 @@ import "../assets/css/style-liberty.css";
 
 import b1 from "../assets/images/b1.jpg";
 import { Table } from "react-bootstrap";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
 import TourApi from "../api/TourApi";
+import UserApi from "../api/UserApi";
+
 
 const Checkout = () => {
   let { id } = useParams();
   const [tourDetail, setTourDetail] = useState({});
+
+  const navigate = useNavigate();
 
   console.log(tourDetail);
 
   useEffect(() => {
     const response = TourApi.getById(`${id}`);
     response.then((res) => setTourDetail(res));
-  }, [id]);
+  }, []);
+  const[datTour,setDatTour] = useState({
+    ten : "",
+    diaChi: "",
+    sdt : "",
+    email: "",
+    ghiChu:"",
+    nguoiLon: "",
+    treEm: "",
+    treNho: "",
+    soLuongDat : 1,
+    idChitiettour: id
+
+  });
+
+
+
+  const sendDatTour =(e)=>{
+    
+    e.preventDefault();
+    UserApi.datTour(datTour).then((response)=>{
+      console.log(response);      
+      alert(response)
+      setDatTour({
+        ten : "",
+        diaChi: "",
+        sdt : "",
+        email: "",
+        ghiChu:"",
+        nguoiLon: "",
+        treEm: "",
+        treNho: "",
+        soLuongDat : 1 ,
+        idChitiettour: id
+
+    
+      })
+      navigate("/Home")
+    })
+    .catch((response)=>{console.log(response)});
+    
+    // console.log(datTour);
+  }
+
+
+
+  const getDatachange=(e)=>{
+    // console.log(e.target.value);
+    // console.log(e.target.name);
+  
+    setDatTour({
+      ...datTour,
+      [e.target.name ] : e.target.value
+    
+    });
+    console.log(datTour);
+
+  }
+
+ 
 
   return (
     <>
@@ -172,65 +235,41 @@ const Checkout = () => {
               >
                 <div class="row book-form">
                   <div class="form-input col-md-4 mt-3">
-                    <label>Name</label>
-                    <input type="text" name="" placeholder="Name" required="" />
+                    <label>Họ Tên</label>
+                    <input type="text" name="ten" placeholder="Họ Tên" required="" value={datTour.ten} onChange={getDatachange}/>
                   </div>
                   <div class="form-input col-md-4 mt-3">
-                    <label>Destination</label>
-                    <select name="selectpicker" class="selectpicker">
-                      <option value="">Any</option>
-                      <option value="africa">Africa</option>
-                      <option value="america">America</option>
-                      <option value="asia">Asia</option>
-                      <option value="eastern-europe">Eastern Europe</option>
-                      <option value="europe">Europe</option>
-                      <option value="south-america">South America</option>
-                    </select>
-                  </div>
-                  <div class="form-input col-md-4  mt-3">
-                    <label>Activity</label>
-                    <select name="activity" class="selectpicker">
-                      <option value="">Any</option>
-                      <option value="city-tours">City Tours</option>
-                      <option value="cultural-thematic-tours">
-                        Cultural &amp; Thematic Tours
-                      </option>
-                      <option value="family-friendly-tours">
-                        Family Friendly Tours
-                      </option>
-                      <option value="holiday-seasonal-tours">
-                        Holiday &amp; Seasonal Tours
-                      </option>
-                      <option value="indulgence-luxury-tours">
-                        Indulgence &amp; Luxury Tours
-                      </option>
-                      <option value="outdoor-activites">
-                        Outdoor Activites
-                      </option>
-                      <option value="relaxation-tours">Relaxation Tours</option>
-                      <option value="wild-adventure-tours">
-                        Wild &amp; Adventure Tours
-                      </option>
-                    </select>
+                    <label>Địa Chỉ</label>
+                    <input type="text" name="diaChi" placeholder="Địa chỉ" required="" value={datTour.diaChi} onChange={getDatachange}/>
                   </div>
                   <div class="form-input col-md-4 mt-3">
-                    <label>Duration</label>
-                    <select name="duration" class="selectpicker">
-                      <option value="">Any</option>
-                      <option value="1">1 Day Tour</option>
-                      <option value="2">2-4 Days Tour</option>
-                      <option value="5">5-7 Days Tour</option>
-                      <option value="7">7+ Days Tour</option>
-                    </select>
+                    <label>Số điện thoại</label>
+                    <input type="text" name="sdt" placeholder="Số điện thoại" required="" value={datTour.sdt} onChange={getDatachange}/>
                   </div>
                   <div class="form-input col-md-4 mt-3">
-                    <label>Date</label>
-                    <input type="date" name="" placeholder="Date" required="" />
+                    <label>Email</label>
+                    <input type="text" name="email" placeholder="Email" required="" value={datTour.email} onChange={getDatachange}/>
                   </div>
-                  <div class="bottom-btn col-md-4 mt-3">
-                    <label>Submit</label>
-                    <button class="btn btn-style btn-primary w-100">
-                      Submit
+                  <div class="form-input col-md-4 mt-3">
+                    <label>Ghi chú</label>
+                    <input type="text" name="ghiChu" placeholder="Ghi chú" required="" value={datTour.ghiChu} onChange={getDatachange}/>
+                  </div>
+                  <div class="form-input col-md-4 mt-3">
+                    <label>Người lớn</label>
+                    <input type="text" name="nguoiLon" placeholder="Người lớn" required="" value={datTour.nguoiLon} onChange={getDatachange}/>
+                  </div>
+                  <div class="form-input col-md-4 mt-3">
+                    <label>Trẻ em(5 - 11 tuổi)</label>
+                    <input type="text" name="treEm" placeholder="nhập số" required="" value={datTour.treEm} onChange={getDatachange}/>
+                  </div>
+                  <div class="form-input col-md-4 mt-3">
+                    <label>Trẻ nhỏ(2 - 5 tuổi)</label>
+                    <input type="text" name="treNho" placeholder="nhập số" required="" value={datTour.treNho} onChange={getDatachange}/>
+                  </div>  
+                  <div class="" style={{display: "flex",flexDirection : "column",alignItems:"end"}}>
+                    {/* <label>Đặt Tour</label> */}
+                    <button class="btn btn-style btn-primary " onClick={sendDatTour} style={{width:"32%", marginTop: "20px"}}>
+                      Đặt Tour
                     </button>
                   </div>
                 </div>

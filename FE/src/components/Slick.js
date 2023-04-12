@@ -34,12 +34,12 @@ function PrevArrow(props) {
     );
 }
 
-const Slick = ({ title, tours }) => {
+const Slick = ({ title, tours, title2 }) => {
 
     const settings = {
         infinite: true,
         speed: 500,
-        slidesToShow: 3,
+        slidesToShow: 4,
         slidesToScroll: 1,
         nextArrow: <NextArrow />,
         prevArrow: <PrevArrow />
@@ -47,10 +47,10 @@ const Slick = ({ title, tours }) => {
 
     return (
         <section className="w3l-gallery-6">
-            <div className="gallery-content-6 py-5">
+            <div className="gallery-content-6 ">
                 <div className="container py-lg-5">
-                    <div className="title-content mb-lg-5 mb-4">
-                        <span className="sub-title">Hot Tours</span>
+                    <div className="title-content mb-lg-5">
+                        <h5 className="sub-title">{title2}</h5>
                         <h3 className="hny-title">{title}</h3>
                     </div>
                     <div>

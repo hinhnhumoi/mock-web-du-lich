@@ -1,6 +1,7 @@
 package com.tmp.service.impl;
 
 import com.tmp.config.event.OnSendRegistrationUserConfirmViaEmailEvent;
+import com.tmp.dto.PhieuDatDto;
 import com.tmp.entity.User;
 import com.tmp.entity.UserStatus;
 import com.tmp.entity.authen.RegistrationUserToken;
@@ -58,6 +59,8 @@ public class UserService implements IUserService {
 
         registrationUserTokenRepository.deleteById(registrationUserToken.getId());
     }
+
+
 
 
     @Override

@@ -37,7 +37,7 @@ const SignUp = (props) => {
       <div className="text-center mt-4">
         <h1 className="h2">Get started</h1>
         <p className="lead">
-          Start creating account to experience in VTI Tour Sale Management.
+          Start creating account to experience in Thanh Tung Tour Sale Management.
         </p>
       </div>
       <Formik

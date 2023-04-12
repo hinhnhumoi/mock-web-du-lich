@@ -40,6 +40,13 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .antMatchers("/api/v1/login").anonymous()
                 .antMatchers("/api/v1/loaitours/**").permitAll()
                 .antMatchers("/api/v1/tours/**").permitAll()
+                .antMatchers("/api/v1/hangs/**").permitAll()
+                .antMatchers("/api/v1/phieuAdmins/**").permitAll()
+                .antMatchers("/api/v1/toursAdmin/**").permitAll()
+                .antMatchers("/api/v1/tinhs/**").permitAll()
+                .antMatchers("/api/v1/hoaDons/**").permitAll()
+                .antMatchers("/api/v1/chiTietToursAdmin/**").permitAll()
+
 //                .antMatchers("/api/v1/groups/**").hasAnyAuthority("Admin","Manager")
                 .anyRequest().authenticated()
                 .and()

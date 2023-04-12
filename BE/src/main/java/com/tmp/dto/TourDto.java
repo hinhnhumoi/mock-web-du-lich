@@ -3,11 +3,11 @@ package com.tmp.dto;
 import com.tmp.entity.DiaDiem;
 import com.tmp.entity.LoaiTour;
 import com.tmp.entity.Tinh;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import com.tmp.entity.Tour;
+import lombok.*;
 
-@Data
+@Setter
+@Getter
 @NoArgsConstructor
 @AllArgsConstructor
 public class TourDto {
@@ -24,7 +24,24 @@ public class TourDto {
     private String lichTrinh;
     private String banDo;
     private LoaiTour loaiTour;
-    private String tinh;
+    private Integer idTinh;
     private String diaDiem;
+
+    public TourDto(Tour entity){
+        if (entity!= null){
+            this.phuongTien = entity.getPhuongTien();
+            this.sltd = entity.getSltd();
+            this.tenTour = entity.getTenTour();
+            this.soNgay = entity.getSoNgay();
+            this.soDem = entity.getSoDem();
+            this.giaNguoiLon = entity.getGiaNguoiLon();
+            this.giaTreEm = entity.getGiaTreEm();
+            this.giaTreNho = entity.getGiaTreNho();
+            this.moTaTour = entity.getMoTaTour();
+            this.lichTrinh = entity.getLichTrinh();
+            this.loaiTour = entity.getLoaiTour();
+            this.idTinh = entity.getTinh().getId();
+        }
+    }
 
 }
